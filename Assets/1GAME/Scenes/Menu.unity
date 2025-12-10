@@ -318,8 +318,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.47185796, y: 0.00000020724785, z: -0.00000011091568, w: 0.8816746}
-  m_LocalPosition: {x: 0, y: 16, z: -10}
+  m_LocalRotation: {x: 0.3826835, y: 0.00000049854657, z: -0.00000020650477, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: 11, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -430,7 +430,7 @@ Light:
   serializedVersion: 12
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2
+  m_Intensity: 1.5
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -624,6 +624,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aee4bc193f19519429c31923bf1e87b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tower
+  _alive: 1
   _hp: 100
   _maxHp: 100
   _regenerationStrength: 5
@@ -924,7 +925,7 @@ MonoBehaviour:
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
-  FollowOffset: {x: 0, y: 15, z: -10}
+  FollowOffset: {x: 0, y: 10, z: -10}
 --- !u!114 &1728884360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -976,8 +977,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1728884357}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.4718579, y: 0.00000020724784, z: -0.00000011091568, w: 0.88167465}
-  m_LocalPosition: {x: 0, y: 16, z: -10}
+  m_LocalRotation: {x: 0.38268346, y: 0.00000049854646, z: -0.00000020650468, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: 11, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
