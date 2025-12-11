@@ -184,7 +184,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 03606afe83a30054a80a3560e6695609, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -318,8 +318,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3826835, y: 0.00000049854657, z: -0.00000020650477, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 11, z: -10}
+  m_LocalRotation: {x: 0.47185796, y: -0.000000001525064, z: 8.1618945e-10, w: 0.8816746}
+  m_LocalPosition: {x: 0, y: 16, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -439,7 +439,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.9
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -516,7 +516,7 @@ MonoBehaviour:
   m_CustomShadowLayers: 0
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 1
+  m_SoftShadowQuality: 0
   m_RenderingLayersMask:
     serializedVersion: 0
     m_Bits: 1
@@ -528,6 +528,57 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1 &760142708
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 760142709}
+  - component: {fileID: 760142710}
+  m_Layer: 0
+  m_Name: Minigun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &760142709
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760142708}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 949656503}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &760142710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760142708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69c67c363a26a674b91da285babf74b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Minigun
+  WeaponType: 0
+  Damage: 100
+  FireRate: 0.05
+  Radius: 20
+  BulletPrefab: {fileID: 7029237696529615656, guid: e7c89e6c0b305214196daf80321a7c3e, type: 3}
+  BulletSpeed: 100
+  _shootPoint: {fileID: 760142709}
 --- !u!1 &766916957
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,10 +625,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   _radius: 35
   _spawnDelay: 0.3
-  _normalPrefab: {fileID: 345361159794347901, guid: 93803e65d69abe94899190d0668cfae4, type: 3}
+  _normalPrefab: {fileID: 345361159794347901, guid: 474e7b61c4418ce4da8d3600035c651f, type: 3}
   _kamikazePrefab: {fileID: 345361159794347901, guid: 93803e65d69abe94899190d0668cfae4, type: 3}
-  _fastPrefab: {fileID: 345361159794347901, guid: 93803e65d69abe94899190d0668cfae4, type: 3}
-  _tankPrefab: {fileID: 345361159794347901, guid: 93803e65d69abe94899190d0668cfae4, type: 3}
+  _fastPrefab: {fileID: 345361159794347901, guid: da0836ab3ec251a46bd6fd2c6656636c, type: 3}
+  _tankPrefab: {fileID: 345361159794347901, guid: ff8d3c36c2fd18545b0f549a09055b0a, type: 3}
   _bossPrefab: {fileID: 345361159794347901, guid: 93803e65d69abe94899190d0668cfae4, type: 3}
 --- !u!1 &949656502
 GameObject:
@@ -592,7 +643,7 @@ GameObject:
   m_Layer: 0
   m_Name: Tower
   m_TagString: Tower
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
@@ -610,6 +661,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1194832129}
+  - {fileID: 760142709}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &949656504
@@ -627,8 +679,8 @@ MonoBehaviour:
   _alive: 1
   _hp: 100
   _maxHp: 100
-  _regenerationStrength: 5
-  _regenerationRate: 0
+  _regenerationStrength: 1
+  _regenerationRate: 1
   Model: {fileID: 1194832128}
   _deathParticle: {fileID: 0}
 --- !u!1 &1017147303
@@ -766,7 +818,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
+  m_StaticShadowCaster: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -925,7 +977,7 @@ MonoBehaviour:
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
-  FollowOffset: {x: 0, y: 10, z: -10}
+  FollowOffset: {x: 0, y: 15, z: -10}
 --- !u!114 &1728884360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -977,8 +1029,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1728884357}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38268346, y: 0.00000049854646, z: -0.00000020650468, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 11, z: -10}
+  m_LocalRotation: {x: 0.4718579, y: -0.0000000015250639, z: 8.161892e-10, w: 0.88167465}
+  m_LocalPosition: {x: 0, y: 16, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

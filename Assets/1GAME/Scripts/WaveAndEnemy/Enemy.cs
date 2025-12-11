@@ -5,6 +5,8 @@
  *========================================================================
  */
 
+using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 
 public enum EnemyType
@@ -22,6 +24,7 @@ public class Enemy : MonoBehaviour, IDamageable
     public EnemyType EnemyType;
     
     [Header("HP")]
+    public bool Alive = true;
     [SerializeField] private int _hp;
     [SerializeField] private int _maxHp;
 
@@ -52,6 +55,8 @@ public class Enemy : MonoBehaviour, IDamageable
 
     private void Movement()
     {
+        if (!Alive) return;
+        
         Vector3 _dir = (_targetTransform.position - transform.position).normalized;
         transform.position += _dir * _speed * Time.deltaTime;
         
@@ -59,15 +64,14 @@ public class Enemy : MonoBehaviour, IDamageable
         if (_dist < 2f)
         {
             _isMoving = false;
-            Tower.Instance.TakeDamage(_damage);
-            
-            if (EnemyType == EnemyType.Kamikaze)
-                Destroy(gameObject);
+            Attack();
         }
     }
     
     private void RotationToTower()
     {
+        if (!Alive) return;
+        
         Vector3 direction = (_targetTransform.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(direction);
         
@@ -76,17 +80,65 @@ public class Enemy : MonoBehaviour, IDamageable
     
     public void TakeDamage(float damage)
     {
+        if (!Alive) return;
+        
         _hp -= Mathf.RoundToInt(damage);
         if (_hp <= 0) Death();
     }
 
+    private void Attack()
+    {
+        if (!Alive) return;
+
+        StartCoroutine(AttackCoroutine());
+    }
+
+    private IEnumerator AttackCoroutine()
+    {
+        while (Alive)
+        {
+            Tower.Instance.TakeDamage(_damage);
+
+            if (EnemyType == EnemyType.Kamikaze)
+            {
+                Death();
+                yield break;
+            }
+            
+            yield return new WaitForSecondsRealtime(2f);
+        }
+    }
+
     private void Death()
     {
+        if (!Alive) return;
+        
+        Alive = false;
+        
         Debug.Log("DeathEnemy");
         
         EventBus.InvokeDeathEnemy();
         
         if (EnemyType == EnemyType.Boss)
             EventBus.InvokeDeathBoss();
+        
+        DeathAnimation();
+    }
+
+    private void DeathAnimation()
+    {
+        Sequence deathSequence = DOTween.Sequence();
+
+        deathSequence
+            .Append(gameObject.transform.DOScale(new Vector3(
+                gameObject.transform.localScale.x * 1.1f,
+                gameObject.transform.localScale.y * 1.1f,
+                gameObject.transform.localScale.z * 1.1f
+            ), 0.2f))
+            .Append(gameObject.transform.DOScale(Vector3.zero, 0.1f))
+            .OnComplete(() =>
+            {
+                Destroy(gameObject);
+            });
     }
 }

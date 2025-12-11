@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 380928267658730979}
   - component: {fileID: 345361159794347901}
   m_Layer: 0
-  m_Name: NormalEnemy
+  m_Name: KamikazelEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -45,12 +45,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8cf9d7169589c409ee994b5f461418, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  EnemyType: 1
+  EnemyType: 0
   _alive: 1
-  _hp: 10
-  _maxHp: 10
+  _hp: 1
+  _maxHp: 1
   _model: {fileID: 8026856976868723950}
-  _damage: 1
+  _damage: 5
   _speed: 10
   _targetTransform: {fileID: 0}
   _isMoving: 1
